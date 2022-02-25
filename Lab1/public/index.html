@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab1 Cherkasov A.A.</title>
+</head>
+<body>
+  <link href="/css/styles.css" rel="stylesheet">
+  <form id="form1" action="/" method="post">
+  <h1>Анкета на конкурс талантов</h1>
+    <div class="form">
+      <div class="column">
+        <div id="data1" class="data">
+          <label>
+            ФИО: <input name="FIO" id="FIO" type="text">
+          </label>
+          <label>
+            Дата рождения:<input name="BirthData" id="BirthData" type="date">
+          </label>
+          <label>
+            Место жительства:<input id="HomeAdress" name="HomeAdress" type="text">
+          </label>
+        </div>
+        <div class="row">
+          <div id="data2" class="data">
+            Талант:
+            <label>
+              <input name="talent" value="Vocal" id="Vocal" type="checkbox"> Вокал
+            </label>
+            <label>
+              <input name="talent" value="Dance" id="Dance" type="checkbox"> Современный танец
+            </label>
+            <label>
+              <input name="talent" value="Acting" id="Acting" type="checkbox"> Актерское мастерство
+            </label>
+          </div>
+          <div id="data3" class="data">
+            Возрастная категория<br>
+            <label>
+              <input name="Age" id="age8" type="radio" value="8"> до 8
+            </label>
+            <label>
+              <input name="Age" id="age8_12" type="radio" value="8_12"> 8-12
+            </label>
+            <label>
+              <input name="Age" id="age12_18" type="radio" value="12_18"> 12-18
+            </label>
+            <label>
+              <input name="Age" id="age18" type="radio" value="18"> от 18
+            </label>
+          </div>
+        </div>
+        <div id="data4" class="data">
+          <label>
+            Мое фото: <input id="photo" name="photo" type="file" accept="image/*">
+          </label>
+        </div>
+      </div>
+      <div class="column">
+        <div id="data5Label" class="data">
+          Контактная информация
+        </div>
+        <div class="row">
+          <div id="data5" class="data">
+            <label>
+              Телефон: <input name="phone" id="phone" type="tel">
+            </label>
+          </div>
+          <div id="data6" class="data">
+            <label>
+              Эл. почта: <input name="mail" id="mail" type="email">
+            </label>
+          </div>
+        </div>
+        <div id="data7" class="data">
+          <label>
+            Адрес ДК: <select name="DKAdress" id="DKAdress">
+              <option value="Москва">Москва</option>
+              <option value="Тверь">Тверь</option>
+              </select>
+          </label>
+          <label>
+            Дата отбора: <input name="dateCh" id="dateCh" type="date">
+          </label>
+          <label>
+            Статус: <select name="status" id="status">
+              <option value="впервые">впервые</option>
+              <option value="уже участвовал">уже участвовал</option>
+              </select>
+          </label>
+        </div>
+        <div id="data8" class="data">
+          <label>
+            Описание выступления:<br>
+            <textarea name="descr" id="descr"></textarea>
+          </label>
+        </div>
+      </div>
+    </div>
+    <label>
+      <input type="submit" id="submit" value="Отправить">
+    </label>
+  </form>
+</body>
+</html>

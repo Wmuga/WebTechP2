@@ -1,0 +1,25 @@
+.form, .row{
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+}
+
+
+.column, .data{
+  display: flex;
+  flex-direction: column;
+}
+
+.data{
+ padding: 1em;
+ border: 2px solid black;
+}
+
+#data4{
+  height: 100%;
+}
+
+#descr{
+  height: 3em;
+  width: 35em;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab1</title>
+</head>
+<body>
+  <link href="./styles.css" rel="stylesheet">
+  <table>
+    <tr>
+      <td class="right"><label for="adress">Адрес проживания</label></td>
+      <td><input id="adress" type="text" name="adress"></td>
+      <td class="center">Отметьте для статистики жанры которые ниболее вас привлекают</td>
+      <td>
+        <label><input type="checkbox" id="genre1" name="genre" value="Ужасы">Ужасы</label><br>
+        <label><input type="checkbox" id="genre2" name="genre" value="Детектив">Детектив</label><br>
+        <label><input type="checkbox" id="genre3" name="genre" value="Выживание">Выживание</label><br>
+        <label><input type="checkbox" id="genre4" name="genre" value="Фэнтези">Фэнтези</label><br>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="right"><label for="scenery">Выберите сюжет</label></td>
+      <td colspan="2">
+        <select name="scenery" id="scenery">
+          <option value="Зомби-апокалипсис">"Зомби-апокалипсис"</option>
+          <option value="Вторжение инопланетян">"Вторжение инопланетян"</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" class="center">Сложность:
+        <label><input type="radio" name="diff" id="diff1" value="новичок">новичок</label>
+        <label><input type="radio" name="diff" id="diff2" value="игрок">игрок</label>
+        <label><input type="radio" name="diff" id="diff3" value="мастер">мастер</label>
+      </td>
+    </tr>
+    <tr>
+      <td class="right"><label for="playerCount">Количество игроков:</label></td>
+      <td><input id="playerCount" type="number" name="playerCount" value="0"></td>
+      <td colspan="2">
+        Особые модификаторы:<br>
+        <label><input type="checkbox" id="hints" name="modif" value="Подсказки">Подсказки</label><br>
+        <label><input type="checkbox" id="noRestrictions" name="modif" value="Без ограничений по квестам">Без ограничений по квестам</label><br>
+        <label>Степень участия аниматоров 0<input type="range" min="0" max="10">10</label>
+      </td>
+    </tr>
+    <tr class="center">
+      <td colspan="2">
+        <label>Имя: <input id="name" name="name" type="text"></label><br>
+        <br><label>Телефон: <input id="phone" name="phone" type="text" placeholder="+7 (XXX) XXX-XX-XX"></label><br>
+        <br><label>E-mail: <input id="mail" name="mail" type="email"></label>
+      </td>
+      <td colspan="2">
+        <label>Особые пожелания:
+          <textarea id="comment" name="comment"></textarea>
+        </label>
+      </td>
+    </tr>
+    <tr class="center">
+      <td colspan="4"><label><input type="submit" value="Оформить заказ" id="submit" name="submit"></label></td>
+    </tr>
+  </table>
+</body>
+</html>

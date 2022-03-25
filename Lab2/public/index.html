@@ -2,9 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>А-08-19 Черкасов А. А-08-19</title>
+    <title>А-08-19 Черкасов А. А-08-19 Лаб2</title>
+    <link href="./styles.css" rel="stylesheet">
 </head>
 <body>
-    
+    <h1>Детская спортивная школа</h1>
+    <form action="/info" method="POST">
+        <table>
+            <tr>
+                <td colspan="3" class="center bold">
+                    <label>Фамилия: <input id="FN" name="FN" type="text"></label>
+                    <label>Имя: <input id="SN" name="SN" type="text"></label>
+                    <label>Отчество: <input id="LN" name="LN" type="text"></label>
+                </td>
+            </tr>    
+            <tr class="bold">
+                <td><label> Вид спорта:
+                    <select name="sport" id="sport">
+                    <option value="Плавание">Плавание</option>
+                    <option value="Футбол">Футбол</option>
+                    <option value="Волейбол">Волейбол</option>
+                    <option value="Баскетбол">Баскетбол</option>
+                    <option value="Теннис">Теннис</option>
+                  </select>
+                    </label>
+                </td>
+                <td><label> Дата рождения:<input name="bitrh" id="birth" type="date"></label></td>
+                <td><label> Время занятия:
+                    <select name="time" id="time">
+                        <option value="9">9:00-11:00</option>
+                        <option value="11">11:00-13:00</option>
+                        <option value="13">13:00-15:00</option>
+                        <option value="15">15:00-17:00</option>
+                      </select>
+                    </label>
+                </td>
+            </tr>   
+            <tr>
+                <td colspan="2" rowspan="2" class="center">
+                    <span class="bold">Школа:</span><br>
+                    <label><input name="school" id="school1" type="radio" value="Василек"> Василек</label><br>
+                    <label><input name="school" id="school3" type="radio" value="Огонек"> Огонек</label><br>
+                    <label><input name="school" id="school2" type="radio" value="Ручеек"> Ручеек</label><br>
+                    <label><input name="school" id="school4" type="radio" value="Дельфин"> Дельфин</label><br>
+                </td>
+                <td>
+                    <label><input name="healthProbs" id="healthProbs" type="checkbox"> Проблемы со здоровьем</label><br>
+                    <label><input name="parentsAgreement" id="parentsAgreement" type="checkbox"> Согласие родителей</label><br>
+                </td>
+            </tr> 
+            <tr>
+                <td class="bold"><label>Телефон для связи: <input name="phone" id="phone" type="tel"></label></td>
+            </tr> 
+            <tr>
+                <td><label>Количество часов в неделю:<br> 1<input id="hpw" name="hpw" type="range" min="1" max="6" step="1">6</label></td>
+                <td style="position: relative;">
+                    <label>
+                        <textarea id="comment" name="comment" placeholder="Отзыв о сервисе"></textarea>
+                    </label></td>
+                <td class="center">
+                <label><input id="submit" name="submit" type="submit" value="Отправить"></label>
+            </td>
+            </tr>  
+        </table>
+    </form>
 </body>
 </html>

@@ -1,0 +1,24 @@
+table, tr, td{
+  border: 1px solid black;
+}
+
+.center{
+  text-align: center;
+}
+
+.right{
+  text-align: right;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+textarea{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 80%;
+  resize: none;
+}

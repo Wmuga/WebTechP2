@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./styles.css" rel="stylesheet">
+    <title>Все, что в таблице:</title>
+</head>
+<body>
+    <h1>Введенные данные:</h1>
+    <table>
+        <tr>
+            <td>Фамилия</td>
+            <td>Имя</td>
+            <td>Отчество</td>
+            <td>Спорт</td>
+            <td>Дата рождения</td>
+            <td>Время занятий</td>
+            <td>Школа</td>
+            <td>Жалобы на здоровье</td>
+            <td>Согласие от родителей</td>
+            <td>Телефон</td>
+            <td>Часов в неделю</td>
+            <td>Комментарий</td>
+        </tr>
+        <% for (let item of data){%>
+            <tr>
+            <td><%=item.fn%></td>
+            <td><%=item.sn%></td>
+            <td><%=item.ln%></td>
+            <td><%=item.sport%></td>
+            <td><%=item.birth%></td>
+            <td><%=item.time%>:00-<%=item.time+2%>:00</td>
+            <td><%=item.school%></td>
+            <td><%=item.healthProbs%></td>
+            <td><%=item.parentAgreement%></td>
+            <td><%=item.phone%></td>
+            <td><%=item.hpw%></td>
+            <td><%=item.comment%></td>
+            </tr>
+        <%}%>
+    </table>
+</body>
+</html>

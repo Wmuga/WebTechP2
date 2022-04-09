@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход на ...</title>
+</head>
+<body>
+  <link rel="stylesheet" href="css/sign.css" />
+  <main>
+    <form action="/login" method="POST">
+      <div id="header"><div id="logo"><div id="logoInText">hh</div></div><span>Вход</span></div><br>
+      <div id="error"><%= data.error??"" %></div>
+      <label><input type="text" id="login" name="login" placeholder="Ник"></label><br>
+      <label><input type="password" id="password" name="password" placeholder="Пароль"></label><br>
+      <label><input type="submit" id="submit" name="submit" value="Войти"></label><br>
+      <label><a href="/signin"><input type="button" id="reg" name="reg" value="Регистрация"></a></label>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,124 @@
+:root{
+  --dark: #2c2727;
+  --light-grey: #988c8c;
+  --red: #881414;
+  --bright: rgb(228, 220, 220);
+  --green: #3ee24b;
+}
+
+header{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark);
+  height: 3em;
+  color: var(--bright);
+  min-width: max-content;
+}
+
+#logo{
+  background-color: red;
+  text-align: center;
+  font-size: 16pt;
+  border-radius: 50%;
+  height: 1.7em;
+  aspect-ratio: 1;
+}
+
+header .left{
+  display: flex;
+}
+header .left > div{
+  margin-left: 1em;
+  height: 100%;
+  align-self: center;
+}
+
+#help{
+  font-size: 14pt;
+  border-bottom: 3px dotted var(--bright);
+}
+
+#username{
+  position: relative;
+  font-size: 14pt;
+  font-weight: bold;
+  min-width: 6em;
+  text-align: center;
+  border: 0.1em solid var(--light-grey);
+}
+
+.header-decoration{
+  font-size: 14pt;
+  color: var(--bright);
+  text-decoration-line: none;
+}
+
+header .right{
+  display: flex;
+}
+
+header .right > div{
+  margin-right: 0.7em;
+  height: 100%;
+  align-self: center;
+}
+
+#logoInText{
+  font-weight: bold;
+  position: relative;
+  font-size: 16pt;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.ovalBorder{
+  border: 0.01em solid var(--bright);
+  padding-block: 0.3em;
+  padding-inline: 0.5em;
+  border-radius: 40vw;
+}
+
+#resume,#vacancy{
+  border-color: var(--green);
+}
+#resume > a,
+#vacancy > a{
+  color: var(--green);
+}
+
+#search{
+  padding-left: 1em;
+}
+
+.hidden-top{
+  position: relative;
+}
+
+.hidden{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  left:-0.06em;
+  background-color: var(--dark);
+  border: 0.1em solid var(--light-grey);
+  border-top: none;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s;
+}
+
+.hidden-top:hover > .hidden,
+.hidden:hover
+.hidden:focus-within{
+  transform: scaleY(1);
+}
+
+.hidden > *{
+  text-align: center;
+  padding-bottom: 0.2em;
+}
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация на ...</title>
+</head>
+<body>
+  <link rel="stylesheet" href="css/sign.css" />
+  <script src="js/signin.js"></script>
+  <main>
+    <form action="/signin" method="POST">
+      <div id="header"><div id="logo"><div id="logoInText">hh</div></div><span>Регистрация</span></div><br>
+      <div id="error"><%= data.error??"" %></div>
+      <label><input type="text" id="login" name="login" placeholder="Ник"></label><br>
+      <label><input type="password" id="password" name="password" placeholder="Пароль"></label><br>
+      <label><input type="password" id="repeatpassword" name="repeatpassword" placeholder="Повторить пароль"></label><br>
+      <label><input type="submit" id="submit" name="submit" value="Загрегистрироваться"></label>
+    </form>
+  </main>
+</body>
+</html>

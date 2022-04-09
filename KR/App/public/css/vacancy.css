@@ -1,0 +1,44 @@
+:root{
+  --light-blue: rgb(34, 194, 209);
+  --light-grey: #aea3a3;
+  --bright: rgb(253, 251, 251);
+  --green: #3bc347;
+}
+
+.company{
+  font-weight: normal;
+  color: var(--light-blue)
+}
+
+#company-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 50em;
+}
+
+.round-corners{
+  border-radius: 0.8vw;
+}
+
+#respond{
+  padding-block: 0.4em;
+  padding-inline:0.8em;
+  font-size: 12pt;
+  color: var(--bright);
+  background-color: var(--green);
+  border: none;
+}
+
+.keyword{
+  background-color: var(--light-grey);
+  font-size: 12pt;
+  margin-right: 0.4em;
+  padding-block: 0.4em;
+  padding-inline:0.8em;
+}
+
+img{
+  max-width: 7em;
+  max-height: 7em;
+}

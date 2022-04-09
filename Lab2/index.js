@@ -18,25 +18,25 @@ let pool = mysql.createPool({
   password:'123',
   database:'web'
 })
-
+//По запросу на /info отображать страницу с таблицей данных
 app.get('/info',(req,res)=>{
+  //Получение подключения к базе
   pool.getConnection((err,connection)=>{
     if (err) console.log(err)
+	//Вытаскиваем все данные с базы
     connection.query('SELECT * FROM lab2;',(err,result,fields)=>{
       if(err) console.log(err)
-      
-      console.log(result)
-
+	  //Рендер страницы с данными, отключение от бд
       res.render('info-template',{data:result})
       connection.release()
     })
   })
 })
 
-// Route на POST  по адрессу /. req.body содержит в себе тело отправленных данных, из которых и собирается ответ
+// Route на POST  по адрессу /info. req.body содержит в себе тело отправленных данных, из которых и собирается ответ
 app.post('/info',urlencodedParser,(req,res)=>{
   let body = req.body
-  //Проверка на undefined и "обезопасивание" запроса
+  //Проверка на undefined
   body.FN = body.FN ?? ''
   body.SN = body.SN ?? ''
   body.LN = body.LN ?? ''
@@ -45,19 +45,20 @@ app.post('/info',urlencodedParser,(req,res)=>{
   body.parentsAgreement = body.parentsAgreement ? 1 : 0
   body.phone = body.phone ?? ''
   body.comment = body.comment ?? ''
-
+  //Собираю все данные из JSON в массив в нужном мне порядки
   let data = [body.FN,body.SN,body.LN,body.sport,body.birth,body.time,body.school,body.healthProbs,body.parentsAgreement,body.phone,body.hpw,body.comment]
-  
+  //Отображение debug страницы
   res.render('template',{test:JSON.stringify(body)})
-  
+  //Получение подключения к базе
   pool.getConnection((err,connection)=>{
     if (err) throw err
-
+	//Отправление данных в таблицу web.lab2
     let query = 'INSERT INTO lab2 VALUES(?,?,?,?,?,?,?,?,?,?,?,?)'
     connection.query(query,data,(err,res,field)=>{
       if (err) console.log(err)
       console.log(`New post. Affected rows ${res?.affectedRows}`)
     })
+	//Отключение от бд
     connection.release()
   })
 })

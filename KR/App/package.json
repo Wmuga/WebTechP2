@@ -1,0 +1,26 @@
+{
+  "name": "kr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/index.ts"
+  },
+  "author": "Alex",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/serve-favicon": "^2.5.3",
+    "@types/sqlite3": "^3.1.8",
+    "body-parser": "^1.19.2",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0",
+    "sqlite3": "^5.0.2"
+  }
+}

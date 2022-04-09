@@ -1,0 +1,31 @@
+:root{
+  font-size: 16pt;
+}
+
+.nocolor{
+  background-color: transparent;
+}
+
+.color{
+  opacity: 1;
+  background-color: black;
+
+}
+
+.tempnocolor{
+  opacity: 0;
+  background-color: black;
+
+}
+
+td{
+  font-size: 4pt;
+  width: 1em;
+  height: 1em;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+table{
+  border-spacing: 0px;
+}

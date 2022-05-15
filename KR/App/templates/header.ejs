@@ -2,14 +2,18 @@
 <header>
   <div class = "left">
    <div id="logo"><a href="/" class="header-decoration"><div id="logoInText">hh</div></a></div>
-    <div id="help"><a href="help" class="header-decoration">Помощь</a></div>
+    <!-- <div id="help"><a href="help" class="header-decoration">Помощь</a></div> -->
   </div>
   <div class="right">
-    <div id="search"><a href="search" class="header-decoration">Поиск</a></div>
+    <div id="searchv"><a href="search" class="header-decoration">Просмотр вакансий</a></div>
+    <div id="searchr"><a href="searchr" class="header-decoration">Просмотр резюме</a></div>
+    <%if(data.level==3){%>
+      <div id="usersr"><a href="users" class="header-decoration">Просмотр пользователей</a></div>
+    <%}%>
     <% if (data.level==1) {%>
-      <div id="vacancy" class="ovalBorder"><a href="vacancy" class="header-decoration">Создать вакансию</a></div>
-      <%}else{%>
-        <div id="resume" class="ovalBorder"><a href="resume" class="header-decoration">Создать резюме</a></div>
+      <div id="vacancycr" class="ovalBorder"><a href="vacancy" class="header-decoration">Создать вакансию</a></div>
+      <%}else if (data.level==0){%>
+        <div id="resumecr" class="ovalBorder"><a href="resume" class="header-decoration">Создать резюме</a></div>
     <%}%>
     <% if (data.login){%>
       <div id="username" class="hidden-top"><%= data.login %>
@@ -21,6 +25,5 @@
       <%} else{%>
       <div id="login" class="ovalBorder"><a href="login" class="header-decoration">Войти</a></div>
     <%}%>
-    
   </div>
 </header>

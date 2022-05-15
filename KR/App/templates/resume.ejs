@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title><%= data.resume%></title>
+</head>
+<body>
+  <%- include('header') %>
+  <link rel="stylesheet" href="css/vacancy.css" />
+<main>
+  <span id="error"><%=data.error %></span>
+  <h2><%= data.resume%></h2>
+  <h3><%= data.resname %></h3>
+  <img src="<%= data.respfp %>" alt="<%= data.resname %>"> 
+  <h3>Описание</h3>
+  <%- data.about %>
+</main>
+</body>
+</html>

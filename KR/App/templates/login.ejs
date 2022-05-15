@@ -5,7 +5,8 @@
   <title>Вход на ...</title>
 </head>
 <body>
-  <link rel="stylesheet" href="css/sign.css" />
+  <link rel="stylesheet" href="/css/sign.css" />
+  <script src="/js/login.js"></script>
   <main>
     <form action="/login" method="POST">
       <div id="header"><div id="logo"><div id="logoInText">hh</div></div><span>Вход</span></div><br>
@@ -13,7 +14,7 @@
       <label><input type="text" id="login" name="login" placeholder="Ник"></label><br>
       <label><input type="password" id="password" name="password" placeholder="Пароль"></label><br>
       <label><input type="submit" id="submit" name="submit" value="Войти"></label><br>
-      <label><a href="/signin"><input type="button" id="reg" name="reg" value="Регистрация"></a></label>
+      <div id="reg"><a href="/signin">Регистрация</a></div>
     </form>
   </main>
 </body>

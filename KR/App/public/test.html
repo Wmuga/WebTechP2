@@ -2,9 +2,23 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Профиль</title>
 </head>
 <body>
-
+  <%- include('header') %>
+  <!-- <link rel="stylesheet" href="css/profile.css" /> -->
+  <h2>Профиль</h2>
+  <main>
+    <span id="nick"><%=data.name%></span>
+    <div id="profilePic">
+      <img src="./profilepic/nopic.jpg"><br>
+      <form action="/uploadPic" method="POST">
+        <label>Фото профиля <input name="img" id="img" type="file" accept="image/png, image/jpeg"></label>
+        <input type="submit" name="updatePic" value="Обновить фото профиля">
+      </form>
+    </div>
+    <!-- <div id="profilePic"><img src=<%=data.pfp%></div> -->
+    <span id="level"><%=data.level></span>
+  </main>
 </body>
 </html>

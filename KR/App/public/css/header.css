@@ -2,8 +2,10 @@
   --dark: #2c2727;
   --light-grey: #988c8c;
   --red: #881414;
-  --bright: rgb(228, 220, 220);
+  --bright: #f1e8e8;
   --green: #3ee24b;
+  --light-blue: #2ebdddce;
+  --blue: #1b48c4ce;
 }
 
 header{
@@ -55,6 +57,10 @@ header .left > div{
   color: var(--bright);
   text-decoration-line: none;
 }
+.no-decoration{
+  text-decoration-line: none;
+  color: #000;
+}
 
 header .right{
   display: flex;
@@ -81,11 +87,11 @@ header .right > div{
   border-radius: 40vw;
 }
 
-#resume,#vacancy{
+#resumecr,#vacancycr{
   border-color: var(--green);
 }
-#resume > a,
-#vacancy > a{
+#resumecr > a,
+#vacancycr > a{
   color: var(--green);
 }
 
@@ -109,6 +115,7 @@ header .right > div{
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.2s;
+  z-index: 100;
 }
 
 .hidden-top:hover > .hidden,
@@ -122,3 +129,16 @@ header .right > div{
   padding-bottom: 0.2em;
 }
 
+main{
+  position: relative;
+  border: 0.1em solid var(--dark);
+  width: 90%;
+  height: max-content;
+  margin-top: 1em;
+  margin-left: 5%;
+  padding: 1em;
+  font-size: 16pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

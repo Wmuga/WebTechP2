@@ -3,7 +3,7 @@
   --red: #881414;
   --bright: rgb(228, 220, 220);
   --green: #3ee24b;
-  --light-blue: rgba(46, 189, 221, 0.808);
+  --light-blue: #2ebdddce;
 }
 
 #header{
@@ -73,14 +73,28 @@ form input{
   width: 15em;
 }
 
-#reg{
-  width: 15.4em;
+input[type=checkbox]{
+  width: min-content;
 }
 
-#submit{
+
+#reg > a{
+  text-decoration: none;
+  color: black;
+  font-size: 15pt;
+}
+
+#submit,#reg{
   width: 15.4em;
   background-color: var(--light-blue);
   border: none;
+  padding-block: 0.05em;
+}
+
+#reg{
+  margin: 0.1em;
+  text-align: center;
+  text-decoration: none;
 }
 
 #error{

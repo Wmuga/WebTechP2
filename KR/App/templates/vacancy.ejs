@@ -13,27 +13,18 @@
   <span class="salary"><%= data.salary %></span><br>
   <div id="company-info">
     <h3 class="company"><%= data.company %></h3>
-    <img src="<%= data.companyImg %>" alt="<%= data.company %>">
+    <img src="<%= data.companypfp %>" alt="<%= data.company %>">
   </div>
   <form action="/vacancy" method="POST">
     <input type="hidden" name="vacId" id="vacId" value="<%= data.id %>">
     <input type="hidden" name="usrId" id="usrId" value="<%= data.login %>">
     <input class="round-corners" name="respond" id="respond" type="submit" value="Откликнуться">
   </form>
-  <p id="exp">Требуемый опыт работы: <%= data.exp %></p>
-  <p id="type"><%= data.type %></p>
-  <p id="about">
-    <%- data.about %>
-  </p>
-  <p id="duties">
-    <%- data.duties %>
-  </p>
-  <p id="conditions">
-    <%- data.conditions %>
-  </p>
+  <h3>Описание</h3>
+  <%- data.about %>
   <h3>Ключевые навыки</h3>
   <div id="keywords">
-    <% for (let keyword of data.keywords){%>
+    <% if (data.keywords) for (let keyword of data.keywords){%>
       <span class="keyword round-corners"><%= keyword.keyword %></span>
     <%}%>
   </div>

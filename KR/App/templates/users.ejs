@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Просмотр пользователей</title>
+</head>
+<body>
+  <%- include('header') %>
+  <link rel="stylesheet" href="css/search.css" />
+  <main>
+    <div id="items">
+    </div>
+  </main>
+
+  <script>
+    function placedata(items){
+      let container = document.getElementById("items")
+      container.innerText=""
+      for (let item of items){
+        let res = document.createElement('div')
+        res.id = `i${item.id}`
+        res.classList.add('item')
+        
+        let a = document.createElement('a')
+        a.href = `/profile?id=${item.id}`
+        a.classList.add('no-decoration')
+        let title = document.createElement('h3')
+        title.innerText = item.name
+        a.appendChild(title)
+        res.appendChild(a)
+
+        let lvl = document.createElement('span')
+        lvl.id = `lvl${item.id}`
+        lvl.innerText = level_by_id(Number(item.level))
+        res.appendChild(lvl)
+        
+        res.append(document.createElement('br'))
+
+        let delbtn = document.createElement('input')
+        delbtn.type="button"
+        delbtn.name=`del${item.id}`
+        delbtn.id=`del${item.id}`
+        delbtn.value="Удалить"
+        delbtn.onclick = ()=>{deleteUser(item.id)}
+        res.appendChild(delbtn)
+
+        let lbl = document.createElement('label')
+        lbl.innerText = "Уровень: "
+
+        let updSel = document.createElement('select')
+        updSel.name=`sel${item.id}`
+        updSel.id=`sel${item.id}`
+        for(let i=0;i<4;i++){
+          let opt = document.createElement('option')
+          opt.value=i
+          opt.innerText = level_by_id(i)
+          updSel.appendChild(opt) 
+        }
+        lbl.appendChild(updSel)
+        res.appendChild(lbl)
+
+        let updbtn = document.createElement('input')
+        updbtn.type="button"
+        updbtn.name=`upd${item.id}`
+        updbtn.id=`upd${item.id}`
+        updbtn.value="Обновить"
+        updbtn.onclick = ()=>{updateUser(item.id)}
+        res.appendChild(updbtn)
+
+        container.appendChild(res)
+      }
+    }
+
+
+    function deleteUser(id){
+      let req = new XMLHttpRequest()
+      req.open("DELETE",`/user?id=${id}`,false)
+      req.send()
+      if(req.status==204) {
+        let child = document.getElementById(`i${id}`)
+        child.parentNode.removeChild(child)
+      }
+    }
+
+    function updateUser(id){
+      let level = document.getElementById(`sel${id}`).value
+      let req = new XMLHttpRequest()
+      req.open("PATCH",`/user?id=${id}&level=${level}`,false)
+      req.send()
+      if(req.status==204) {
+        document.getElementById(`lvl${id}`).innerText = level_by_id(Number(level))
+      }
+    }
+
+    function level_by_id(level){
+      switch(level){
+        default:
+          return "Пользователь"
+        case 1:
+          return "Работодатель"
+        case 2:
+          return "Модератор"
+        case 3:
+          return "Админ"
+      }
+    }
+
+    window.addEventListener('load',()=>{
+      placedata(<%- JSON.stringify(data.items) %>)
+    })
+  </script>
+</body>
+</html>

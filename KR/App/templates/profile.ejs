@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Профиль</title>
+</head>
+<body>
+  <%- include('header') %>
+  <link rel="stylesheet" href="css/profile.css" />
+  <main>
+    <h2>Профиль</h2>
+    <span id="nick"><%= data.user.name %></span>
+    <div id="profilePic">
+      <img src="<%= data.user.pfp %>"><br>
+      <form action="/uploadPic" enctype="multipart/form-data" method="POST">
+        <label>Фото профиля <input name="img" id="img" type="file" accept="image/png, image/jpeg"></label>
+        <input type="submit" name="updatePic" value="Обновить фото профиля">
+      </form>
+    </div>
+    <span id="level"><%=data.user.levelstr%></span>
+  <%if(data.user.level<2 && data.items){%>
+    <%if(data.user.level){%>
+      <h3>Вакансии</h3>
+      <div class="dataholder" id="vac">
+        <%for(let vac of data.items){%>
+          <div class="itemholder">
+            <a href="/vacancy?id=<%=vac.id%>"><%=vac.vacancy%></a>
+          </div>
+        <%}%>
+      </div>
+    <%}else{%>
+    <h3>Резюме</h3>
+    <div class="dataholder" id="res">
+      <%for(let res of data.items){%>
+        <div class="itemholder">
+          <a href="/resume?id=<%=res.id%>"><%=res.resume%></a>
+        </div>
+      <%}%>
+    </div>
+  <%}%>
+  <%}%>
+</main>
+</body>
+</html>

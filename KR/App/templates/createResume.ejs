@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Создать вакансию</title>
+  <script src="/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+  <%- include('header') %>
+  <main>
+    <label>Название резюме<br><input id="resumeIn" name="resumeIn" type="text"><br></label>
+    <br>Введите информацию про вас и ваши навыки
+    <div id="editor1"></div>
+    <br><br>
+    <input type="button" name="btn" id="btn" value="Создать резюме" onclick="sendData()">
+
+    <form action="/resume" method="POST" style="opacity:0;transform:translateY(0)">
+      <input type="hidden" value="" name="about" id="about">
+      <input type="hidden" value="" name="resume" id="resume">
+      <input type="submit" name="submit" id="submit">
+    </form>
+  </main>
+  <script>
+    let editor1
+    (async function(){
+      editor1 = await ClassicEditor.create( document.querySelector( '#editor1' ), {removePlugins:['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption', 'ImageStyle', 'ImageToolbar', 'ImageUpload', 'MediaEmbed','Table','TableToolbar']})
+    })()
+    const sendData = ()=> {
+      if (!editor1) return
+      document.getElementById("about").value=editor1.getData()
+      document.getElementById("resume").value=document.getElementById("resumeIn").value
+      document.getElementById("submit").click()
+    }
+  </script>
+</body>
+</html>

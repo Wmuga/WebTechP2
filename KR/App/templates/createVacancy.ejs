@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Создать вакансию</title>
+  <script src="/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+  <%- include('header') %>
+  <main>
+    <label>Название вакансии<br><input id="vacancyIn" name="vacancyIn" type="text"><br></label>
+    <br>Введите информацию про предлагаемую работу (требования, условия работы и т.п.)
+    <div id="editor1"></div>
+    <label>Заработная плата:<br><input id="salaryIn" name="salaryIn" type="text"><br></label>
+    <label>Ключевые слова (через запятую):<br><input id="keywordsIn" name="keywordsIn" type="text"></label>
+    <br><br>
+    <input type="button" name="btn" id="btn" value="Создать вакансию" onclick="sendData()">
+
+    <form action="/vacancy" method="POST" style="opacity:0;transform:translateY(0)">
+      <input type="hidden" value="" name="about" id="about">
+      <input type="hidden" value="" name="salary" id="salary">
+      <input type="hidden" value="" name="keywords" id="keywords">
+      <input type="hidden" value="" name="vacancy" id="vacancy">
+      <input type="submit" name="submit" id="submit">
+    </form>
+  </main>
+  <script>
+    let editor1
+    (async function(){
+      editor1 = await ClassicEditor.create( document.querySelector( '#editor1' ), {removePlugins:['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption', 'ImageStyle', 'ImageToolbar', 'ImageUpload', 'MediaEmbed','Table','TableToolbar']})
+    })()
+    const sendData = ()=> {
+      if (!editor1) return
+      document.getElementById("about").value=editor1.getData()
+      document.getElementById("salary").value=document.getElementById("salaryIn").value
+      document.getElementById("keywords").value=document.getElementById("keywordsIn").value
+      document.getElementById("vacancy").value=document.getElementById("vacancyIn").value
+      document.getElementById("submit").click()
+    }
+  </script>
+</body>
+</html>

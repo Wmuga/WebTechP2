@@ -1,0 +1,23 @@
+.keyword{
+  background-color: var(--light-grey);
+  font-size: 12pt;
+  margin-right: 0.4em;
+  padding-block: 0.4em;
+  padding-inline:0.8em;
+}
+
+.item{
+  margin: 1em;
+  padding: 0.3em;
+  border: 0.01em solid var(--dark);
+  background-color: var(--bright);
+}
+
+#items{
+  width: 100%;
+  align-items: flex-start;
+}
+
+#items input, #items select{
+  margin-right: 1em;
+}

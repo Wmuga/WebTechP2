@@ -11,7 +11,7 @@
     <h2>Профиль</h2>
     <span id="nick"><%= data.user.name %></span>
     <div id="profilePic">
-      <img src="<%= data.user.pfp %>"><br>
+      <img src="<%= data.user.pfp %>" alt="User profile picture"><br>
       <form action="/uploadPic" enctype="multipart/form-data" method="POST">
         <label>Фото профиля <input name="img" id="img" type="file" accept="image/png, image/jpeg"></label>
         <input type="submit" name="updatePic" value="Обновить фото профиля">

@@ -42,3 +42,7 @@ img{
   max-width: 7em;
   max-height: 7em;
 }
+
+main{
+  display: block;
+}

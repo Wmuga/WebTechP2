@@ -15,11 +15,11 @@
     <h3 class="company"><%= data.company %></h3>
     <img src="<%= data.companypfp %>" alt="<%= data.company %>">
   </div>
-  <form action="/vacancy" method="POST">
+  <!-- <form action="/vacancy/" method="POST">
     <input type="hidden" name="vacId" id="vacId" value="<%= data.id %>">
     <input type="hidden" name="usrId" id="usrId" value="<%= data.login %>">
     <input class="round-corners" name="respond" id="respond" type="submit" value="Откликнуться">
-  </form>
+  </form> -->
   <h3>Описание</h3>
   <%- data.about %>
   <h3>Ключевые навыки</h3>

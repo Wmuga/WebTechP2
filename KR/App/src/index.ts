@@ -20,7 +20,6 @@ const port = app_options.port
 app.use(favicon(path.join(process.cwd(),'public','favicon','favicon.ico')))
 app.use(bodyParser.urlencoded({ limit:'50mb',extended: true }))
 app.use(cookieParser())
-// app.set('trust proxy', 1)
 // Говорим, что в сессии будет находиться данные о пользователе
 declare module 'express-session' {
   export interface SessionData {
@@ -31,20 +30,13 @@ declare module 'express-session' {
     }
   }
 }
+// Настройка сессий
 app.use(session({
   secret:app_options.secret.toString(), cookie: {sameSite:"lax" }, rolling: true, saveUninitialized:true,resave:true
 }))
 
-//Создаем pool подключений к серверу
-// let pool = mysql.createPool({
-//   connectionLimit:7,
-//   host:'localhost',
-//   user:'muser',
-//   password:'123',
-//   database:'web'
-// })
 
-// Все route во внешнем файле
+// Функция маршрутизации из внешнего файла
 route(app,db)
 
 // Говорим приложению, что рендерим html через ejs и указываем директорию шаблонов
@@ -52,8 +44,8 @@ app.set('view engine','ejs')
 app.set('views',path.join(process.cwd(), 'templates'))
 // Говорим приложению, что все изначально берется из директории /public в папке проекта
 app.use(express.static(path.join(process.cwd(), 'public')))
-
-app.use(function(req:Request, res:Response) {
+// Стандарткая страница 404
+app.use(function(_:Request, res:Response) {
   res.status(404).sendFile(path.join(process.cwd(), 'public','404.html'))
 });
 
@@ -61,7 +53,7 @@ app.use(function(req:Request, res:Response) {
 app.listen(port,()=>{
   console.log(`Working on port ${port}`)
 })
-
+// Удобное добавление пользователей для загрузки в бд
 // function add_root(){
 //   let db = new database_connection()
 //   db.add_user('noob','noob',2,()=>{console.log('Added user')})
